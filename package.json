@@ -1,0 +1,24 @@
+{
+    "name": "shutdownafter",
+    "version": "1.0.0",
+    "description": "a tool to shutdown/reboot/sleep your computer after execute a cmd command",
+    "main": "shutdownafter.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "shutdown",
+        "reboot",
+        "sleep"
+    ],
+    "author": "yokoee",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yokoee/shutdownafter.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yokoee/shutdownafter/issues"
+    },
+    "homepage": "https://github.com/yokoee/shutdownafter#readme"
+}
