@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const exec = require('child_process').exec;
 const spawn = require('child_process').spawn;
 
@@ -47,19 +49,28 @@ function isTime(string) {
         return false;
     }
 }
-
-let run = exec(command);
-run.stderr.on('data', (data) => {
-    console.log(data);
-})
-run.stdout.on('data', (data) => {
-    console.log(data);
-})
-run.on('close', () => {
-    console.log('\"' + command + '\"' + ' 执行完毕！');
-    console.log('将于 ' + timeout + ' 秒后 ' + modeName);
-    setTimeout(() => {
-        console.log('正在' + modeName + ' ...');
-        //spawn('shutdown', [mode]);        
-    }, parseInt(timeout) * 1000);
-})
+if (command) {
+    let run = exec(command);
+    run.stderr.on('data', (data) => {
+        console.log(data);
+    })
+    run.stdout.on('data', (data) => {
+        console.log(data);
+    })
+    run.on('close', () => {
+        console.log('\"' + command + '\"' + ' 执行完毕！');
+        console.log('将于 ' + timeout + ' 秒后 ' + modeName);
+        console.log('要取消' + modeName + '请按 Ctrl+C ');
+        setTimeout(() => {
+            console.log('正在' + modeName + ' ...');
+            //spawn('shutdown', [mode]);        
+        }, parseInt(timeout) * 1000);
+    })
+} else {
+    console.log('usage: shutdowna [-h/-r/-s] [timeout] [command]\n\n' +
+        '-h 休眠\n' +
+        '-r 重启\n' +
+        '-s 关机\n' +
+        'timeout 执行关机/重启/休眠操作的延时，时间单位为秒\n' +
+        'command 要执行的命令，用双引号包住，如 "echo null"');
+}

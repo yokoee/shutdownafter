@@ -1,10 +1,9 @@
 # usage
 ```
-> git clone https://github.com/yokoee/shutdownafter.git
-> cd shutdownafter
+> npm install shutdownafter -g
 ```
 ```
-> node shutdownafter.js [-h/-r/-s] [timeout] [command]
+> shutdowna [-h/-r/-s] [timeout] [command]
 ```
 参数|说明  
 ----|---- 
